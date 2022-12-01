@@ -9,7 +9,7 @@ import {
   Route, Routes} from 'react-router-dom';
   import { Box } from '@mui/material';
   // import Login from './Components/Login';
-  import Register from './Components/Register';
+  // import Register from './Components/Register';
   import {Link} from 'react-router-dom';
   import MortgageCalc from './Components/MortgageCalc';
   import AboveFooter from './Components/AboveFooter';
@@ -97,7 +97,7 @@ function App() {
         <Box>  
             <Routes>
       <Route exact path = '/login' element = {<LoginPage />}></Route>
-      <Route exact path = '/register' element = {<Register />}></Route>    
+      {/* <Route exact path = '/register' element = {<Register />}></Route>     */}
       <Route exact path = '/mortgagecalc' element = {<MortgageCalc />}></Route>
       <Route exact path = '/aip' element = {<Aip />}></Route>
       <Route exact path = '/newaip' element = {<NewAip />}></Route>

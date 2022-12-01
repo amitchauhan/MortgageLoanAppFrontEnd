@@ -130,8 +130,8 @@ const LoginPage = () => {
                     <Form>  
                         <br/>              
                         <h4 className='mb-3 text-center ' >Login to Application Tracker</h4>
-                        <FloatingLabel controlId="floatingInput" label="Email" className="mb-3" autoComplete="off" >
-                            <Form.Control type="email" placeholder="name@example.com" 
+                        <FloatingLabel controlId="floatingInput" label="Email"  className="mb-3" autoComplete="off" >
+                            <Form.Control type="email" placeholder="name@example.com" id="loginemail"
                             onChange={(e) => {setUserEmail(e.target.value); 
                                 setEmailError(``) }}
                             isInvalid = {!!emailError}
@@ -141,10 +141,10 @@ const LoginPage = () => {
                             </Form.Control.Feedback>
                         </FloatingLabel>
 
-                        <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" autoComplete="off" >
+                        <FloatingLabel controlId="floatingPassword" label="Password"  className="mb-3" autoComplete="off" >
                         
 
-                            <Form.Control type="password" placeholder="Password"
+                            <Form.Control type="password" placeholder="Password" id="pwd"
                                 onChange={(e) => { setPassword(e.target.value) 
                                     setPasswordError(``)
                                 }} 
@@ -156,7 +156,7 @@ const LoginPage = () => {
                         </FloatingLabel>
                     </Form>
                      <div className='text-center span2'>
-                            <Button type='submit' variant="contained"
+                            <Button type='submit' variant="contained" id="loginsubmit"
                              sx={{ mt: 1, mb: 2, backgroundColor:"red"}} 
                       onClick={Login} >Login</Button>         
                         </div>  

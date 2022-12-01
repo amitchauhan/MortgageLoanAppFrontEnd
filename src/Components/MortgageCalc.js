@@ -37,8 +37,8 @@ const MortgageCalc = () => {
     <br/>
     <h3>Do you have a mortgage with us already?</h3>  
     <ButtonGroup variant="outlined" aria-label="large button group " size="large">
-      <Button onClick={()=>setVisible(false)} onClickCapture={()=>setNewcust(true)}>Yes</Button>
-      <Button onClick={()=>setVisible(true)} onClickCapture={()=>setNewcust(false)}>No</Button>      
+      <Button id="mortgagealreadyyes" onClick={()=>setVisible(false)} onClickCapture={()=>setNewcust(true)}>Yes</Button>
+      <Button id="mortgagealreadyno" onClick={()=>setVisible(true)} onClickCapture={()=>setNewcust(false)}>No</Button>      
     </ButtonGroup>
     <br/>
     <br/>
@@ -47,8 +47,8 @@ const MortgageCalc = () => {
     </div> :null}
     {visible ? <div> <h3> Is the Mortgage for..</h3>
     <ButtonGroup variant="outlined" aria-label="large button group" size="large">
-      <Button onClick={()=> setShow(true)} onClickCapture={()=>setBtl(false)}>Your home</Button>
-      <Button onClick={()=> setBtl(true)} onClickCapture={()=>setShow(false)}>A Property to rent out</Button>      
+      <Button id="foryourhome" onClick={()=> setShow(true)} onClickCapture={()=>setBtl(false)}>Your home</Button>
+      <Button id="rentout" onClick={()=> setBtl(true)} onClickCapture={()=>setShow(false)}>A Property to rent out</Button>      
     </ButtonGroup> </div> :null}
     </div>
     <br/>
@@ -78,14 +78,14 @@ const MortgageCalc = () => {
             You want to buy your first ever home to live in.
             <br/>
             <br/>
-            <Button size="large" variant='outlined' onClick={()=> setShow1(true)} onClickCapture={()=>setBtl1(false)}>That's me</Button>
+            <Button id="ftb" size="large" variant='outlined' onClick={()=> setShow1(true)} onClickCapture={()=>setBtl1(false)}>That's me</Button>
         </div>
        
         <div className='col'>
         <h4>Planning to remortgage</h4>
         You already have a mortgage, but you’d like to find out about a remortgage with us.
         <br/>
-            <Button size="large" variant='outlined' onClick={()=>setBtl1(true)} onClickCapture={()=>setShow1(false)}  >That's me</Button>
+            <Button id="remortgage" size="large" variant='outlined' onClick={()=>setBtl1(true)} onClickCapture={()=>setShow1(false)}  >That's me</Button>
         </div>   
         {btl1 ?<div className='container'>
             <br/>
@@ -112,7 +112,7 @@ const MortgageCalc = () => {
         <div className='col'>
         <h5>Start the mortgage application..</h5>
             
-           <Button size="large" variant='outlined' onClick={()=>setBefore(true)} >Get started</Button>
+           <Button id="getstartedm" size="large" variant='outlined' onClick={()=>setBefore(true)} >Get started</Button>
         </div>
         <div className='col'>
         </div>
@@ -144,7 +144,6 @@ const MortgageCalc = () => {
         
         </div> : null}
         
-       
        {soft ?  <div className='container' id="soft">
        <div className='container'>
             <h5>
@@ -159,7 +158,7 @@ const MortgageCalc = () => {
         </div> : null}
         <br/>
         {before ?
-        <Link to="/newaip"><Button variant='contained' style={{backgroundColor:"darkcyan"}}>Continue</Button></Link>
+        <Link to="/newaip"><Button id="continuetoaip" variant='contained' style={{backgroundColor:"darkcyan"}}>Continue</Button></Link>
         : null}
     </div> : null}
     </div> : null}

@@ -17,8 +17,9 @@ export default function NewAip() {
 
     //function to post user data to database
     const [customer, setCustomer]= useState({
-      name:'',  
+        
       email:'',
+      password:'',
       address:'',
       aincome:'',
       deposit:'',
@@ -26,7 +27,9 @@ export default function NewAip() {
       propValue:'',
       age:'',  
       mobile:'',
-      password:''
+      name:'',
+      appStage:''
+      
     });
           
         //   function to validate registration details 
@@ -39,10 +42,10 @@ export default function NewAip() {
         let regemr = /^([a-zA-Z0-9.-]{1,})@([a-zA-Z0-9-]+).([a-zA-Z]{2,8})(.[a-z]{2,8})?$/;
         let mobr= document.getElementById("mobile").value;
         let regmobr = /^[7-9][0-9]{9}$/;
-        let address=document.getElementById("address").value;
-        let reguser= /^[a-z0-9]+$/i;
-        let name=document.getElementById("name").value;
-        let regnamer=/^[a-z]+$/i;
+        // let address=document.getElementById("address").value;
+        // let reguser= /^[a-z0-9]+$/i;
+        // let name=document.getElementById("name").value;
+        // let regnamer=/^[a-z]+$/i;
         let passr= document.getElementById("passwordr").value;
         let regpassr= /^[A-Za-z0-9@!~_]{6,}$/;
         let annuali=document.getElementById("annuali").value;
@@ -76,15 +79,15 @@ export default function NewAip() {
             // flagR=0;
             
         }
-        if (reguser.test(address)) {
-            document.getElementById("addressError").innerHTML="";
-            // flagR=1;
-        }
-        else {
-            document.getElementById("addressError").innerHTML="Address can only have letters and numbers";
-            // flagR=0;
-            
-        }
+        // if (reguser.test(address)) {
+        //     document.getElementById("addressError").innerHTML="";
+        //     // flagR=1;
+        // }
+        // else {
+        //     document.getElementById("addressError").innerHTML="Address can only have letters and numbers";
+        //     // flagR=0;    
+        // }
+
         if (regpassr.test(passr)) {
             document.getElementById("passrerror").innerHTML="";
             // flagR=1;
@@ -94,12 +97,12 @@ export default function NewAip() {
             // flagR=0;
             
         }
-        if(regnamer.test(name)) {
-            document.getElementById("nameerror").innerHTML="";
-        }
-        else{
-            document.getElementById("nameerror").innerHTML="Name can't be empty";
-        }
+        // if(regnamer.test(name)) {
+        //     document.getElementById("nameerror").innerHTML="";
+        // }
+        // else{
+        //     document.getElementById("nameerror").innerHTML="Name can't be empty";
+        // }
         if (regannuali.test(annuali)) {
           document.getElementById("annualerror").innerHTML="";}
         else{
@@ -131,8 +134,9 @@ export default function NewAip() {
           document.getElementById("ageerror").innerHTML="Age must be 18 or above";
         }
         
-        if ( regemr.test(emailid) && regmobr.test(mobr) && regpassr.test(passr) && reguser.test(address)
-         && regnamer.test(name) 
+        if ( regemr.test(emailid) && regmobr.test(mobr) && regpassr.test(passr) 
+        // && reguser.test(address)
+        //  && regnamer.test(name) 
         && regannuali.test(annuali) && regmonthlye.test(monthlye) && regpropv.test(property) 
         && regdeposit.test(deposit1) && regage.test(age) ) {
           flagR=1;          
@@ -143,13 +147,15 @@ export default function NewAip() {
             flagR=0;
         }
 
-        if ( regemr.test(emailid) && regmobr.test(mobr) && regpassr.test(passr) && reguser.test(address)
-        && regnamer.test(name) 
+        if ( regemr.test(emailid) && regmobr.test(mobr) && regpassr.test(passr) 
+        // && reguser.test(address)
+        // && regnamer.test(name) 
        && regannuali.test(annuali) && regmonthlye.test(monthlye) && regpropv.test(property) 
        && regdeposit.test(deposit1) && regage.test(age) ) {
         axios
         .post('http://localhost:8080/users',
         {email: document.getElementById("emailr").value,
+        password:document.getElementById("passwordr").value,   
         mobileNo: document.getElementById("mobile").value,
         name:document.getElementById("name").value,
         address:document.getElementById("address").value,
@@ -158,7 +164,8 @@ export default function NewAip() {
         deposit:document.getElementById("deposit").value,
         propValue: document.getElementById("propv").value,
         age: document.getElementById("age").value,
-        password:document.getElementById("passwordr").value,    
+        appStage:"Underwriting"
+        
       })
       .then(response => setCustomer(response.data))
       .catch(() => console.log("error sending data"));

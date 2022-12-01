@@ -10,7 +10,7 @@ function Main() {
             <br/>
              <div margin bottom="200">
       <img border="0" align="left" src={mort2} alt="homeimage" height="280" width="500"/><h1>New home feeling?</h1><h2>Let us help</h2><h4>Take the first step and start the application today.</h4>
-          <Link to="/mortgagecalc"><Button style={{border: "20", backgroundColor: "green", color: "white"}} >Begin with initial checks</Button></Link>
+          <Link to="/mortgagecalc"><Button id="begin" style={{border: "20", backgroundColor: "green", color: "white"}} >Begin with initial checks</Button></Link>
           <br/>
           <br/>
           <h5>Want to know other options to apply for mortgage?</h5>

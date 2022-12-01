@@ -19,7 +19,9 @@ export default function Register() {
     const [customer, setCustomer]= useState({
       
       email:'',
-      password:''
+      password:'',
+
+      
     });
           
         //   function to validate registration details 
